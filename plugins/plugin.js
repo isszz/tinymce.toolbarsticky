@@ -28,12 +28,16 @@
             toolbar_sticky_elem_height = editor.getParam('toolbar_sticky_elem_height', 0, 'number');
 
             this.editor = editor;
-            runtime.wrap = toolbar_sticky_wrap || window;
+            runtime.wrap = window;
             runtime.editor = editor.$(editor.container);
             runtime.header = runtime.editor.find('.tox-editor-header');
             runtime.container = runtime.editor.find('.tox-editor-container');
             runtime.elemHeight = toolbar_sticky_elem_height;
-            
+
+            if(toolbar_sticky_wrap && typeof toolbar_sticky_wrap === 'string' && toolbar_sticky_wrap != 'body') {
+                runtime.wrap = document.querySelector(toolbar_sticky_wrap) || window;
+            }
+
             let _this = this;
 
             if(toolbar_sticky_type) {
@@ -93,11 +97,11 @@
             offset.isSticky = this.scrollTop() >= this.editor.$(runtime.container).offset().top - elemOffsetHeight;
         }
         bind() {
-            $(runtime.wrap).off('resize.tinymceSticky scroll.tinymceSticky').on('resize.tinymceSticky scroll.tinymceSticky', this.throttle(this.sticky.bind(this), 60));
+            runtime.wrap.addEventListener('scroll', this.throttle(this.sticky.bind(this), 60));
             this.sticky()
         }
         unBind() {
-            $(runtime.wrap).off('resize.tinymceSticky scroll.tinymceSticky')
+            runtime.wrap.removeEventListener('scroll', this.throttle(this.sticky.bind(this), 60));
         }
         restore() {
             runtime.header.attr('style', '');
