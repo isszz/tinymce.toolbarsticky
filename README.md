@@ -7,9 +7,9 @@ So I wrote one myself, and then found that the top of the editor of `ckeditor5` 
 
 Release Notes
 
--2021-01-22 fix full screen conflict
--2021-01-23 Add a friendly error prompt when the reserved node cannot be found (the editor comes with a function)
--2021-01-29 Fix the calculation method of the ceiling. There was a bug in the previous , now it is accurate, and the function throttling of the `resize` and `scroll` event is added.
+- 2021-01-22 fix full screen conflict
+- 2021-01-23 Add a friendly error prompt when the reserved node cannot be found (the editor comes with a function)
+- 2021-01-29 Fix the calculation method of the ceiling. There was a bug in the previous , now it is accurate, and the function throttling of the `resize` and `scroll` event is added.
 
 # Parameter Description
 
