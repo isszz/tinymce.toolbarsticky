@@ -24,10 +24,8 @@ Release Notes
 
 # Installation Notes
 
-
-1. Create a new `toolbarsticky` in the `tinymce/plugins/` directory
-2. Save the code to `tinymce/plugins/toolbarsticky/plugin.min.js`
-3. Add `toolbarsticky` to the `plugins` item of the editor configuration
-
+- Upload the plugins directory directly, or follow the instructions below
+- Save the code (min compressed code provided) to `tinymce/plugins/toolbarsticky/plugin.(min.)js`
+- Added `toolbarsticky` in the `plugins` item of editor configuration
 
 Please see the parameter description for other configurations, the function is very simple
